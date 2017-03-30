@@ -2,23 +2,35 @@ package factorial;
 
 import java.math.BigInteger;
 
+/**
+ * Calculate Factorial
+ * 
+ * @author vitorbrangioni
+ */
 public class Factorial {
-	
-	private static BigInteger result = new BigInteger("1");
 	
 	private Factorial() {
 	}
 
-	// @TODO
-	public static String calculateFactorial(Integer n) {
-		BigInteger nBigInteger = new BigInteger(n.toString());
-		
-		if (n == 0) {
-			return result.toString();
+	/**
+	 * Calculates factorial using recursion
+	 * 
+	 * @param n
+	 * @param nBigInteger
+	 * @return
+	 */
+	private static BigInteger calculateFactorial(Integer n, BigInteger nBigInteger) {
+		if (n == 0 || n == 1) {
+			return nBigInteger;
 		}
-		result = result.multiply(nBigInteger);
-		
-		
-		return null;
+		return calculateFactorial(n -1, nBigInteger.multiply(new BigInteger(n.toString())));
+	}
+	
+	/**
+	 * @param n
+	 * @return factorial value of n
+	 */
+	public static BigInteger calculateFactorial(Integer n) {
+		return calculateFactorial(n, new BigInteger("1"));
 	}
 }
