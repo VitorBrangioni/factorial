@@ -1,5 +1,10 @@
 package timer;
 
+/**
+ * 
+ * @author vitorbrangioni
+ *
+ */
 public class Stopwatch {
 	
 	private static long tempInicial;
@@ -8,9 +13,18 @@ public class Stopwatch {
     private Stopwatch() {
     }
     
+    /**
+     * Start stopwatch
+     */
     public static void start(){
         tempInicial = System.currentTimeMillis();  
     }
+    
+    /**
+     * Start stopwatch
+     * 
+     * @return
+     */
     public static String stop(){
         tempFinal = System.currentTimeMillis();  
         long dif = (tempFinal - tempInicial);         
