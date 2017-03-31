@@ -19,18 +19,28 @@ public class Factorial {
 	 * @param nBigInteger
 	 * @return
 	 */
-	private static BigInteger calculateFactorial(Integer n, BigInteger nBigInteger) {
+	private static BigInteger calculateRecursiveFactorial(Integer n, BigInteger nBigInteger) {
 		if (n == 0 || n == 1) {
 			return nBigInteger;
 		}
-		return calculateFactorial(n -1, nBigInteger.multiply(new BigInteger(n.toString())));
+		return calculateRecursiveFactorial(n -1, nBigInteger.multiply(new BigInteger(n.toString())));
 	}
 	
 	/**
 	 * @param n
 	 * @return factorial value of n
 	 */
-	public static BigInteger calculateFactorial(Integer n) {
-		return calculateFactorial(n, new BigInteger("1"));
+	public static BigInteger calculateRecursiveFactorial(Integer n) {
+		return calculateRecursiveFactorial(n, new BigInteger("1"));
+	}
+	
+	public static BigInteger calculateIterativeFactorial(Integer n) {
+		BigInteger nBigInteger = new BigInteger(n.toString());
+		
+		while (n > 1) {
+			n--;
+			nBigInteger = nBigInteger.multiply(new BigInteger(n.toString()));
+		}
+		return nBigInteger;
 	}
 }
