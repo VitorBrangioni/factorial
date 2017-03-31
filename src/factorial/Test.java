@@ -1,14 +1,27 @@
 package factorial;
 
-import java.math.BigInteger;
+import File.File;
+import timer.Stopwatch;
 
+/**
+ * Class for test
+ * 
+ * @author vitorbrangioni
+ */
 public class Test {
 
-	private static BigInteger calculateFactorial;
-
 	public static void main(String[] args) {
-		calculateFactorial = Factorial.calculateFactorial(30000);
-		System.out.println(calculateFactorial.toString() + "\n");
-	}
+		File file = new File("docs/test.txt");
+		int n = Integer.parseInt(file.readFile());
+		System.out.println("Tempo Recursivo: \n");
+		Stopwatch.start();
+		Factorial.calculateRecursiveFactorial(n);
+		System.out.println(Stopwatch.stop());
 
+		
+		System.out.println("Tempo Iterativo: \n");
+		Stopwatch.start();
+		Factorial.calculateIterativeFactorial(n);
+		System.out.println(Stopwatch.stop());
+	}
 }
